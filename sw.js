@@ -1,5 +1,5 @@
-const CACHE='naval-intelligence-8.9.0';
-const FILES=['./','./index.html','./style-v8.9.css','./academy-illustrations-v7.3.js','./style-v7.css','./privacy.html','./app-v8.9.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const CACHE='naval-intelligence-9.0.0';
+const FILES=['./','./index.html','./style-v9.0.css','./academy-illustrations-v7.3.js','./style-v7.css','./privacy.html','./app-v9.0.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('naval-intelligence-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
